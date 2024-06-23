@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>Test de Depresión para Niños</title>
+
+  </head>
+
+  <body>
+
+    <h1 id="title">Test de Depresión para Niños</h1>
+
+    <p id="description">Este test te ayudará a identificar si tienes síntomas de depresión. Por favor, responde honestamente a las preguntas.</p>
+
+    <form id="test-form">
+
+      <div>
+
+        <label for="name">Nombre:</label>
+
+        <input type="text" id="name" name="name" required>
+
+      </div>
+
+      <div>
+
+        <label for="age">Edad:</label>
+
+        <input type="number" id="age" name="age" required>
+
+      </div>
+
+      <div>
+
+        <label for="grade">Grado que estudias:</label>
+
+        <input type="text" id="grade" name="grade" required>
+
+      </div>
+
+      <div>
+
+        <p>1. ¿Te sientes triste la mayor parte del tiempo?</p>
+
+        <label><input type="radio" name="q1" value="si"> Sí</label>
+
+        <label><input type="radio" name="q1" value="no"> No</label>
+
+      </div>
+
+      <div>
+
+        <p>2. ¿Has perdido interés en jugar o hacer cosas que solías disfrutar?</p>
+
+        <label><input type="radio" name="q2" value="si"> Sí</label>
+
+        <label><input type="radio" name="q2" value="no"> No</label>
+
+      </div>
+
+      <div>
+
+        <p>3. ¿Te cuesta trabajo concentrarte en la escuela?</p>
+
+        <label><input type="radio" name="q3" value="si"> Sí</label>
+
+        <label><input type="radio" name="q3" value="no"> No</label>
+
+      </div>
+
+      <div>
+
+        <p>4. ¿Has tenido cambios en tu apetito, como comer menos o más de lo usual?</p>
+
+        <label><input type="radio" name="q4" value="si"> Sí</label>
+
+        <label><input type="radio" name="q4" value="no"> No</label>
+
+      </div>
+
+      <div>
+
+        <p>5. ¿Te sientes cansado o con poca energía frecuentemente?</p>
+
+        <label><input type="radio" name="q5" value="si"> Sí</label>
+
+        <label><input type="radio" name="q5" value="no"> No</label>
+
+      </div>
+
+      <div>
+
+        <p>6. ¿Has tenido problemas para dormir últimamente?</p>
+
+        <label><input type="radio" name="q6" value="si"> Sí</label>
+
+        <label><input type="radio" name="q6" value="no"> No</label>
+
+      </div>
+
+      <div>
+
+        <p>7. ¿Te sientes solo o sin ganas de hablar con tus amigos o familiares?</p>
+
+        <label><input type="radio" name="q7" value="si"> Sí</label>
+
+        <label><input type="radio" name="q7" value="no"> No</label>
+
+      </div>
+
+      <div>
+
+        <button type="submit" id="submit">Enviar</button>
+
+      </div>
+
+    </form>
+
+    <div id="results"></div>
+
+    <script src="script.js"></script>
+
+  </body>
+
+</html>

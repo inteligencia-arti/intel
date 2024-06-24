@@ -1,111 +1,90 @@
-body {
+// Obtener el formulario
 
-    font-family: Arial, sans-serif;
-
-    margin: 20px;
-
-}
+const form = document.getElementById('diagnostic-form');
 
 
-header {
+// Agregar evento de submit al formulario
 
-    background-color: #f0f0f0;
+form.addEventListener('submit', (e) => {
 
-    padding: 20px;
-
-    text-align: center;
-
-}
+    e.preventDefault();
 
 
-main {
+    // Obtener los valores del formulario
 
-    display: flex;
+    const name = document.getElementById('name').value;
 
-    flex-direction: column;
+    const lastname = document.getElementById('lastname').value;
 
-    align-items: center;
+    const age = document.getElementById('age').value;
 
-    padding: 20px;
+    const birthdate = document.getElementById('birthdate').value;
 
-}
+    const gender = document.getElementById('gender').value;
 
+    const grade = document.getElementById('grade').value;
 
-section {
+    const difficulty = document.getElementById('difficulty').value;
 
-    background-color: #f7f7f7;
+    const category = document.getElementById('category').value;
 
-    padding: 20px;
-
-    margin-bottom: 20px;
-
-    border: 1px solid #ddd;
-
-}
+    const diagnosis = document.getElementById('diagnosis').value;
 
 
-label {
+    // Crear un objeto con los valores del formulario
 
-    display: block;
+    const studentData = {
 
-    margin-bottom: 10px;
+        name,
 
-}
+        lastname,
 
+        age,
 
-input, select, textarea {
+        birthdate,
 
-    width: 100%;
+        gender,
 
-    padding: 10px;
+        grade,
 
-    margin-bottom: 20px;
+        difficulty,
 
-    border: 1px solid #ccc;
+        category,
 
-}
+        diagnosis
 
-
-button[type="submit"] {
-
-    background-color: #4CAF50;
-
-    color: #fff;
-
-    padding: 10px 20px;
-
-    border: none;
-
-    border-radius: 5px;
-
-    cursor: pointer;
-
-}
+    };
 
 
-button[type="button"] {
+    // Mostrar el diagnóstico
 
-    background-color: #337ab7;
+    const diagnosisText = `Diagnóstico: ${difficulty} - ${category} - ${diagnosis}`;
 
-    color: #fff;
-
-    padding: 10px 20px;
-
-    border: none;
-
-    border-radius: 5px;
-
-    cursor: pointer;
-
-}
+    document.getElementById('diagnosis-result').innerHTML = diagnosisText;
 
 
-#diagnosis-result {
+    // Resetear el formulario
 
-    padding: 20px;
+    form.reset();
 
-    border: 1px solid #ddd;
+});
 
-    background-color: #f7f7f7;
 
-}
+// Agregar evento de click al botón de agregar categoría
+
+document.getElementById('add-category-btn').addEventListener('click', () => {
+
+    const addCategoryInput = document.getElementById('add-category');
+
+    const categoryInput = document.getElementById('category');
+
+
+    if (addCategoryInput.value !== '') {
+
+        categoryInput.value += `, ${addCategoryInput.value}`;
+
+        addCategoryInput.value = '';
+
+    }
+
+});

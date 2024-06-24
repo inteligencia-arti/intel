@@ -8,9 +8,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sistema Experto para Diagnóstico de Dificultades en el Aprendizaje</title>
+    <title>Sistema experto para diagnóstico de dificultades en el aprendizaje</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 
 </head>
 
@@ -18,17 +18,17 @@
 
     <header>
 
-        <h1>Sistema Experto para Diagnóstico de Dificultades en el Aprendizaje</h1>
+        <h1>Sistema experto para diagnóstico de dificultades en el aprendizaje</h1>
 
     </header>
 
     <main>
 
-        <form id="diagnostic-form">
+        <section id="student-info">
 
-            <section>
+            <h2>Información del estudiante</h2>
 
-                <h2>Datos del Estudiante</h2>
+            <form>
 
                 <label for="name">Nombre:</label>
 
@@ -42,7 +42,7 @@
 
                 <input type="number" id="age" name="age"><br><br>
 
-                <label for="birthdate">Fecha de Nacimiento:</label>
+                <label for="birthdate">Fecha de nacimiento:</label>
 
                 <input type="date" id="birthdate" name="birthdate"><br><br>
 
@@ -56,55 +56,53 @@
 
                 </select><br><br>
 
-                <label for="grade">Grado que Cursa:</label>
+                <label for="diagnosis-date">Fecha del diagnóstico:</label>
 
-                <select id="grade" name="grade">
+                <input type="date" id="diagnosis-date" name="diagnosis-date"><br><br>
 
-                    <option value="1ro">1ro</option>
+            </form>
 
-                    <option value="2do">2do</option>
+        </section>
 
-                    <option value="3ro">3ro</option>
+        <section id="grade-selection">
 
-                    <option value="4to">4to</option>
+            <h2>Selección del grado</h2>
 
-                    <option value="5to">5to</option>
+            <select id="grade" name="grade">
 
-                    <option value="6to">6to</option>
+                <option value="1ero">1ero</option>
 
-                </select><br><br>
+                <option value="2do">2do</option>
 
-            </section>
+                <option value="3ero">3ero</option>
 
-            <section>
+                <option value="4to">4to</option>
 
-                <h2>Dificultades en el Aprendizaje</h2>
+                <option value="5to">5to</option>
 
-                <label for="difficulty">Seleccione la dificultad:</label>
+                <option value="6to">6to</option>
 
-                <select id="difficulty" name="difficulty">
+            </select>
 
-                    <option value="No sabe leer">No sabe leer</option>
+        </section>
 
-                    <option value="No sabe escribir">No sabe escribir</option>
+        <section id="test">
 
-                    <option value="No sabe concentrarse">No sabe concentrarse</option>
+            <h2>Test educativo</h2>
 
-                </select><br><br>
+            <div id="questions"></div>
 
-                <label for="category">Categoría:</label>
+        </section>
 
-                <input type="text" id="category" name="category"><br><br>
+        <section id="diagnosis">
 
-                <label for="diagnosis">Diagnóstico:</label>
+            <h2>Diagnóstico</h2>
 
-                <textarea id="diagnosis" name="diagnosis"></textarea><br><br>
+            <button id="diagnosis-btn">Realizar diagnóstico</button>
 
-            </section>
+            <div id="diagnosis-result"></div>
 
-            <button type="submit">Diagnosticar</button>
-
-        </form>
+        </section>
 
     </main>
 

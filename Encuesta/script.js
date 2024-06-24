@@ -1,70 +1,151 @@
-// Obtener el formulario
+const studentInfo = document.getElementById('student-info');
 
-const form = document.getElementById('diagnostic-form');
+const gradeSelection = document.getElementById('grade-selection');
 
+const testSection = document.getElementById('test');
 
-// Agregar evento de submit al formulario
+const diagnosisSection = document.getElementById('diagnosis');
 
-form.addEventListener('submit', (e) => {
+const diagnosisBtn = document.getElementById('diagnosis-btn');
 
-    e.preventDefault();
-
-
-    // Obtener los valores del formulario
-
-    const name = document.getElementById('name').value;
-
-    const lastname = document.getElementById('lastname').value;
-
-    const age = document.getElementById('age').value;
-
-    const birthdate = document.getElementById('birthdate').value;
-
-    const gender = document.getElementById('gender').value;
-
-    const grade = document.getElementById('grade').value;
-
-    const difficulty = document.getElementById('difficulty').value;
-
-    const category = document.getElementById('category').value;
-
-    const diagnosis = document.getElementById('diagnosis').value;
+const diagnosisResult = document.getElementById('diagnosis-result');
 
 
-    // Crear un objeto con los valores del formulario
+let studentData = {};
 
-    const studentData = {
+let questions = [];
 
-        name,
-
-        lastname,
-
-        age,
-
-        birthdate,
-
-        gender,
-
-        grade,
-
-        difficulty,
-
-        category,
-
-        diagnosis
-
-    };
+let diagnosis = '';
 
 
-    // Mostrar el diagnóstico
+// Función para generar preguntas según el grado seleccionado
 
-    const diagnosisText = `Diagnóstico: ${difficulty} - ${category} - ${diagnosis}`;
+function generateQuestions(grade) {
 
-    alert(diagnosisText);
+    switch (grade) {
+
+        case '1ero':
+
+            questions = [
+
+                { question: '¿Cuál es el número que sigue a 5?', options: ['6', '7', '8', '9'] },
+
+                { question: '¿Cuál es el color del cielo?', options: ['Azul', 'Rojo', 'Verde', 'Amarillo'] },
+
+                //...
+
+            ];
+
+            break;
+
+        case '2do':
+
+            questions = [
+
+                { question: '¿Cuál es el número que sigue a 10?', options: ['11', '12', '13', '14'] },
+
+                { question: '¿Cuál es el nombre del planeta donde vivimos?', options: ['Tierra', 'Marte', 'Júpiter', 'Saturno'] },
+
+                //...
+
+            ];
+
+            break;
+
+        //...
+
+    }
+
+}
 
 
-    // Resetear el formulario
+// Función para mostrar preguntas en la sección de test
 
-    form.reset();
+function showQuestions() {
+
+    const questionHTML = questions.map((question, index) => {
+
+        return `
+
+            <div class="question">
+
+                <label>${question.question}</label>
+
+                ${question.options.map((option, optionIndex) => {
+
+                    return `
+
+                        <input type="radio" name="question-${index}" value="${option}">
+
+                        <label>${option}</label>
+
+                    `;
+
+                }).join('')}
+
+            </div>
+
+        `;
+
+    }).join('');
+
+    testSection.innerHTML = questionHTML;
+
+}
+
+
+// Función para realizar diagnóstico según las respuestas del test
+
+function makeDiagnosis() {
+
+    const answers = [];
+
+    questions.forEach((question, index) => {
+
+        const answer = document.querySelector(`input[name="question-${index}"]:checked`);
+
+        answers.push(answer.value);
+
+    });
+
+    // Lógica para determinar el diagnóstico según las respuestas
+
+    diagnosis = 'Diagnóstico: ';
+
+    if (answers.includes('incorrecta')) {
+
+        diagnosis += 'El estudiante presenta dificultades en matemáticas.';
+
+    }
+
+    if (answers.includes('otra incorrecta')) {
+
+        diagnosis += 'El estudiante presenta dificultades en biología.';
+
+    }
+
+    //...
+
+    diagnosisResult.innerHTML = diagnosis;
+
+}
+
+
+// Event listeners
+
+gradeSelection.addEventListener('change', (e) => {
+
+    const grade = e.target.value;
+
+    generateQuestions(grade);
+
+    showQuestions();
+
+});
+
+
+diagnosisBtn.addEventListener('click', () => {
+
+    makeDiagnosis();
 
 });

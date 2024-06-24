@@ -60,31 +60,11 @@ form.addEventListener('submit', (e) => {
 
     const diagnosisText = `Diagnóstico: ${difficulty} - ${category} - ${diagnosis}`;
 
-    document.getElementById('diagnosis-result').innerHTML = diagnosisText;
+    alert(diagnosisText);
 
 
     // Resetear el formulario
 
     form.reset();
-
-});
-
-
-// Agregar evento de click al botón de agregar categoría
-
-document.getElementById('add-category-btn').addEventListener('click', () => {
-
-    const addCategoryInput = document.getElementById('add-category');
-
-    const categoryInput = document.getElementById('category');
-
-
-    if (addCategoryInput.value !== '') {
-
-        categoryInput.value += `, ${addCategoryInput.value}`;
-
-        addCategoryInput.value = '';
-
-    }
 
 });

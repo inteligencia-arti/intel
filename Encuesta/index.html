@@ -2,130 +2,122 @@
 
 <html lang="es">
 
-  <head>
+<head>
 
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Test de Depresión para Niños</title>
+    <title>Sistema Experto para Diagnóstico de Dificultades en el Aprendizaje</title>
 
-  </head>
+    <link rel="stylesheet" href="styles.css">
 
-  <body>
+</head>
 
-    <h1 id="title">Test de Depresión para Niños</h1>
+<body>
 
-    <p id="description">Este test te ayudará a identificar si tienes síntomas de depresión. Por favor, responde honestamente a las preguntas.</p>
+    <header>
 
-    <form id="test-form">
+        <h1>Sistema Experto para Diagnóstico de Dificultades en el Aprendizaje</h1>
 
-      <div>
+    </header>
 
-        <label for="name">Nombre:</label>
+    <main>
 
-        <input type="text" id="name" name="name" required>
+        <form id="diagnostic-form">
 
-      </div>
+            <section>
 
-      <div>
+                <h2>Datos del Estudiante</h2>
 
-        <label for="age">Edad:</label>
+                <label for="name">Nombre:</label>
 
-        <input type="number" id="age" name="age" required>
+                <input type="text" id="name" name="name"><br><br>
 
-      </div>
+                <label for="lastname">Apellido:</label>
 
-      <div>
+                <input type="text" id="lastname" name="lastname"><br><br>
 
-        <label for="grade">Grado que estudias:</label>
+                <label for="age">Edad:</label>
 
-        <input type="text" id="grade" name="grade" required>
+                <input type="number" id="age" name="age"><br><br>
 
-      </div>
+                <label for="birthdate">Fecha de Nacimiento:</label>
 
-      <div>
+                <input type="date" id="birthdate" name="birthdate"><br><br>
 
-        <p>1. ¿Te sientes triste la mayor parte del tiempo?</p>
+                <label for="gender">Género:</label>
 
-        <label><input type="radio" name="q1" value="si"> Sí</label>
+                <select id="gender" name="gender">
 
-        <label><input type="radio" name="q1" value="no"> No</label>
+                    <option value="Masculino">Masculino</option>
 
-      </div>
+                    <option value="Femenino">Femenino</option>
 
-      <div>
+                </select><br><br>
 
-        <p>2. ¿Has perdido interés en jugar o hacer cosas que solías disfrutar?</p>
+                <label for="grade">Grado que Cursa:</label>
 
-        <label><input type="radio" name="q2" value="si"> Sí</label>
+                <select id="grade" name="grade">
 
-        <label><input type="radio" name="q2" value="no"> No</label>
+                    <option value="1ro">1ro</option>
 
-      </div>
+                    <option value="2do">2do</option>
 
-      <div>
+                    <option value="3ro">3ro</option>
 
-        <p>3. ¿Te cuesta trabajo concentrarte en la escuela?</p>
+                    <option value="4to">4to</option>
 
-        <label><input type="radio" name="q3" value="si"> Sí</label>
+                    <option value="5to">5to</option>
 
-        <label><input type="radio" name="q3" value="no"> No</label>
+                    <option value="6to">6to</option>
 
-      </div>
+                </select><br><br>
 
-      <div>
+            </section>
 
-        <p>4. ¿Has tenido cambios en tu apetito, como comer menos o más de lo usual?</p>
+            <section>
 
-        <label><input type="radio" name="q4" value="si"> Sí</label>
+                <h2>Dificultades en el Aprendizaje</h2>
 
-        <label><input type="radio" name="q4" value="no"> No</label>
+                <label for="difficulty">Seleccione la dificultad:</label>
 
-      </div>
+                <select id="difficulty" name="difficulty">
 
-      <div>
+                    <option value="No sabe leer">No sabe leer</option>
 
-        <p>5. ¿Te sientes cansado o con poca energía frecuentemente?</p>
+                    <option value="No sabe escribir">No sabe escribir</option>
 
-        <label><input type="radio" name="q5" value="si"> Sí</label>
+                    <option value="No sabe concentrarse">No sabe concentrarse</option>
 
-        <label><input type="radio" name="q5" value="no"> No</label>
+                </select><br><br>
 
-      </div>
+                <label for="category">Categoría:</label>
 
-      <div>
+                <input type="text" id="category" name="category"><br><br>
 
-        <p>6. ¿Has tenido problemas para dormir últimamente?</p>
+                <label for="diagnosis">Diagnóstico:</label>
 
-        <label><input type="radio" name="q6" value="si"> Sí</label>
+                <textarea id="diagnosis" name="diagnosis"></textarea><br><br>
 
-        <label><input type="radio" name="q6" value="no"> No</label>
+                <label for="add-category">Agregar palabra a categoría:</label>
 
-      </div>
+                <input type="text" id="add-category" name="add-category"><br><br>
 
-      <div>
+                <button type="button" id="add-category-btn">Agregar</button>
 
-        <p>7. ¿Te sientes solo o sin ganas de hablar con tus amigos o familiares?</p>
+            </section>
 
-        <label><input type="radio" name="q7" value="si"> Sí</label>
+            <button type="submit">Diagnosticar</button>
 
-        <label><input type="radio" name="q7" value="no"> No</label>
+        </form>
 
-      </div>
+        <div id="diagnosis-result"></div>
 
-      <div>
-
-        <button type="submit" id="submit">Enviar</button>
-
-      </div>
-
-    </form>
-
-    <div id="results"></div>
+    </main>
 
     <script src="script.js"></script>
 
-  </body>
+</body>
 
 </html>

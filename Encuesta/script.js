@@ -1,78 +1,111 @@
-const form = document.getElementById('test-form');
+body {
 
-const submitButton = document.getElementById('submit');
+    font-family: Arial, sans-serif;
 
-const resultsDiv = document.getElementById('results');
-
-
-submitButton.addEventListener('click', (e) => {
-
-  e.preventDefault();
-
-  const name = document.getElementById('name').value;
-
-  const age = document.getElementById('age').value;
-
-  const grade = document.getElementById('grade').value;
-
-  const answers = [];
-
-  const questions = form.querySelectorAll('input[type="radio"]');
-
-  questions.forEach((question) => {
-
-    if (question.checked) {
-
-      answers.push(question.value);
-
-    }
-
-  });
-
-  const score = calculateScore(answers);
-
-  displayResults(name, age, grade, score);
-
-});
-
-
-function calculateScore(answers) {
-
-  return answers.filter((answer) => answer === 'si').length;
+    margin: 20px;
 
 }
 
 
-function displayResults(name, age, grade, score) {
+header {
 
-  let resultText = '';
+    background-color: #f0f0f0;
 
-  if (score === 0) {
+    padding: 20px;
 
-    resultText = `No hay indicios de depresión en ${name}.`;
+    text-align: center;
 
-  } else if (score <= 2) {
+}
 
-    resultText = `Posible indicio de síntomas de depresión en ${name}. Se recomienda seguir monitoreando.`;
 
-  } else if (score <= 5) {
+main {
 
-    resultText = `Posiblemente ${name} esté experimentando síntomas de depresión. Se sugiere una evaluación más profunda por parte de un profesional.`;
+    display: flex;
 
-  } else {
+    flex-direction: column;
 
-    resultText = `No hay diagnóstico definitivo de depresión en ${name}, pero se recomienda una evaluación médica para descartar posibles problemas.`;
+    align-items: center;
 
-  }
+    padding: 20px;
 
-  resultsDiv.innerHTML = `<p>${resultText}</p>
+}
 
-                          <p>Nombre: ${name}</p>
 
-                          <p>Edad: ${age}</p>
+section {
 
-                          <p>Grado que estudia: ${grade}</p>
+    background-color: #f7f7f7;
 
-                          <p>Número de preguntas respondidas afirmativamente: ${score}</p>`;
+    padding: 20px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid #ddd;
+
+}
+
+
+label {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+}
+
+
+input, select, textarea {
+
+    width: 100%;
+
+    padding: 10px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid #ccc;
+
+}
+
+
+button[type="submit"] {
+
+    background-color: #4CAF50;
+
+    color: #fff;
+
+    padding: 10px 20px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+}
+
+
+button[type="button"] {
+
+    background-color: #337ab7;
+
+    color: #fff;
+
+    padding: 10px 20px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+}
+
+
+#diagnosis-result {
+
+    padding: 20px;
+
+    border: 1px solid #ddd;
+
+    background-color: #f7f7f7;
 
 }

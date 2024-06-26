@@ -149,3 +149,107 @@ diagnosisBtn.addEventListener('click', () => {
     makeDiagnosis();
 
 });
+
+
+/*****  REGISTRO ******/
+
+const form = document.getElementById('registration-form');
+
+
+form.addEventListener('submit', (e) => {
+
+	e.preventDefault();
+
+
+	const nombre = document.getElementById('nombre').value;
+
+	const apellido = document.getElementById('apellido').value;
+
+	const usuario = document.getElementById('usuario').value;
+
+	const cedula = document.getElementById('cedula').value;
+
+	const direccion = document.getElementById('direccion').value;
+
+
+	// Validate form data
+
+	if (nombre === '' || apellido === '' || usuario === '' || cedula === '' || direccion === '') {
+
+		alert('Please fill in all fields');
+
+		return;
+
+	}
+
+
+	if (cedula.length!== 10) {
+
+		alert('Cédula must be 10 digits long');
+
+		return;
+
+	}
+
+
+	// Send form data to server
+
+	//...
+
+
+	// Redirect to login page
+
+	window.location.href = 'login.html';
+
+});
+
+
+/***** LOGIN *****/
+
+const Form = document.getElementById('login-form');
+
+
+form.addEventListener('submit', (e) => {
+
+	e.preventDefault();
+
+
+	const usuario = document.getElementById('usuario').value;
+
+	const contraseña = document.getElementById('contraseña').value;
+
+	const confirmarContraseña = document.getElementById('confirmar-contraseña').value;
+
+
+	// Validate form data
+
+	if (usuario === '' || contraseña === '' || confirmarContraseña === '') {
+
+		alert('Please fill in all fields');
+
+		return;
+
+	}
+
+
+	if (contraseña!== confirmarContraseña) {
+
+		alert('Contraseña and Confirmar Contraseña do not match');
+
+		return;
+
+	}
+
+
+	// Send form data to server
+
+	//...
+
+
+	// Redirect to dashboard page
+
+	window.location.href = 'index.html';
+
+});
+
+
